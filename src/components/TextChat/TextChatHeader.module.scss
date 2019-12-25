@@ -1,0 +1,21 @@
+.textChatHeader {
+    flex: none;
+    height: 2em;
+
+    font-size: 2em;
+    font-weight: bold;
+    background-color: #2cbf9a;
+    color: white;
+
+    padding: 0 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+}
+
+.closeButton {
+    cursor: pointer;
+}

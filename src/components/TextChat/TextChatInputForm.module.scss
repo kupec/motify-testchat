@@ -1,0 +1,31 @@
+.inputForm {
+    flex: none;
+    height: 3em;
+    
+    border-top: 1px solid #e9ebef;
+    background: #f6f7f9;
+    font-size: 1.1em;
+
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1em;
+
+    padding: 0 0.5em;
+}
+
+.sendButton {
+    margin: 0 0.5em;
+    flex: none;
+    width: 25px;
+    height: 25px;
+
+    background: url(../assets/send.png) no-repeat center / contain;
+}

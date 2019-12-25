@@ -1,8 +1,8 @@
 import {all, put, take} from 'redux-saga/effects';
-import websocketSendEffect from 'sagas/websocket/websocketSendEffect';
+import websocketSendEffect from '../websocket/websocketSendEffect';
 
-import {LOGIN, login} from 'reducers/auth/authActions';
-import {SOCKET_DISCONNECTED, SOCKET_CONNECTED} from 'reducers/websocket/websocketActions';
+import {LOGIN, login} from '../../reducers/auth/authActions';
+import {SOCKET_DISCONNECTED, SOCKET_CONNECTED} from '../../reducers/websocket/websocketActions';
 
 function* loginOnStartup() {
     yield loginByTokenSaga();

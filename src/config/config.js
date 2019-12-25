@@ -1,3 +1,1 @@
-export default {
-    wsURL: 'wss://ws-test.motify.info/v1',
-};
+export const wsURL = 'wss://ws-test.motify.info/v1';

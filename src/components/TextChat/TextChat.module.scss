@@ -1,0 +1,10 @@
+.textChatPanel {
+    margin: 0.5em;
+    flex: 1;
+
+    border-radius: 5px 5px 0 0;
+
+    display: flex;
+    flex-flow: column;
+    overflow: hidden;
+}

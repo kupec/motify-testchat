@@ -1,8 +1,8 @@
-import {socketConnected, socketDisconnected, socketSuccessResponse, socketErrorResponse} from 'reducers/websocket/websocketActions';
+import {socketConnected, socketDisconnected, socketSuccessResponse, socketErrorResponse} from '../../reducers/websocket/websocketActions';
 import {put, take} from 'redux-saga/effects';
 import {eventChannel} from 'redux-saga';
 
-import socketConnection, {disconnectSocket} from 'sources/api/websocket/socketConnection';
+import socketConnection, {disconnectSocket} from '../../sources/api/websocket/socketConnection';
 
 export default function*() {
     const socket = socketConnection();
@@ -36,12 +36,17 @@ function createSocketEventChannel(socket) {
     return eventChannel(emitter => {
         const emitEvent = (eventType, message) => emitter({eventType, message});
 
-        socket
-            .on('connect', () => emitEvent('connect'))
-            .on('message', message => emitEvent('message', message))
-            .on('disconnect', () => emitEvent('disconnect'));
+        const listeners = [];
+        const addSocketEventListener = (event, handler) => {
+            listeners.push({event, handler});
+            socket.addEventListener(event, handler);
+        };
 
-        return () => socket.removeAllListeners();
+        addSocketEventListener('connect', () => emitEvent('connect'));
+        addSocketEventListener('message', ({data}) => emitEvent('message', JSON.parse(data)));
+        addSocketEventListener('disconnect', () => emitEvent('disconnect'));;
+
+        return () => listeners.forEach(({event, handler}) => socket.removeEventListener(event, handler));
     });
 }
 

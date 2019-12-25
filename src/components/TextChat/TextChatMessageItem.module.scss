@@ -1,0 +1,14 @@
+.message {
+    max-width: 60%;
+    padding: 0.5em;
+}
+
+.messageByUser {
+    align-self: flex-end;
+    background: #d4f2ea;
+}
+
+.messageByCustomer {
+    align-self: flex-start;
+    background: #e9ebef;
+}

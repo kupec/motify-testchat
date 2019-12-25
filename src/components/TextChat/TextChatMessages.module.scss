@@ -1,0 +1,11 @@
+.textChatMessages {
+    flex: 1;
+
+    background: white;
+
+    padding: 0.5em;
+    display: flex;
+    flex-flow: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}

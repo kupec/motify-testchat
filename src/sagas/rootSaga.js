@@ -7,5 +7,7 @@ const sagas = [
 ];
 
 export default function* rootSaga() {
-    yield spawn(singleInterpreterOnlineSaga, sagas);
+    for (const saga of sagas) {
+        yield spawn(saga);
+    }
 }

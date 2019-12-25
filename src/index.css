@@ -20,7 +20,10 @@ html, body {
 }
 
 #root {
-    flex: 1;
+    flex: none;
+    height: 100vh;
+
+    background-color: #e5e5e5;
 
     display: flex;
     flex-flow: column;
